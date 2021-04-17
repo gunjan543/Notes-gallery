@@ -1,0 +1,120 @@
+
+.landing{
+  background-color: #ebebe7;
+}
+
+.branch{
+  background-color: #181D27;
+}
+
+.branch h2{
+  text-align: center;
+  color: #EBEBE7;
+  padding:4rem 0;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+}
+@media (max-width: 1024px) {
+    body {
+      background-image: linear-gradient(
+        to bottom,
+        #13131a 0%,
+        #1c1c2f 50%,
+        #eeeeee 50%,
+        #cfcfcf 100%
+      );
+    }
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+  
+  .overlay {
+    color: #fff;
+    position: relative;
+    width: 400px;
+    height: 250px;
+    border-radius: 20px;
+    margin: 30px;
+    z-index: 2;
+  }
+  
+  .overlay::before,
+  .overlay::after {
+    position: absolute;
+    content: "";
+
+    border-radius: 50%;
+  }
+  
+  .overlay::before {
+    top: -37px;
+    left: 69rem;
+    width: 130px;
+    height: 130px;
+    background-color: dodgerblue;
+ 
+  }
+  
+  .overlay::after {
+    bottom: 82px;
+    left: 562px;
+    width: 120px;
+    height: 120px;
+    background-color: deeppink;
+    z-index: -1;
+  }
+  
+  .overlay--light.overlay::before {
+    background-color: #65c2e2;
+  }
+  
+  .overlay--light.overlay::after {
+    background-color: #ff7dbe;
+  }
+  
+  .card {
+    width: 150%;
+    height: 50%;
+    padding: 30px;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 20px;
+    background-image: linear-gradient( 
+150deg
+, rgba(255 255 255 / 40%) 0%, rgba(255 255 255 / 10%) 100% );
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 24px -1px rgb(0 0 0 / 10%);
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+    margin-left: 150%;
+  }
+  
+  .card--light {
+    color: #13131a;
+    background-image: linear-gradient(
+      150deg,
+      rgba(0 0 0 / 7%) 0%,
+      rgba(0 0 0 / 2%) 100%
+    );
+    box-shadow: 0 1px 24px -1px rgba(0 0 0 / 30%);
+  }
+   
+  .card__title {
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    /* margin-bottom: 100px; */
+    text-align: -webkit-center;
+    margin-top: 1rem;
+ 
+  }
+    
+  :root {
+    --main-angle: 15deg;
+    --secondary-angle: 22deg;
+  }
+  
+ 

@@ -1,0 +1,61 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.landing-img{
+  height: 60vh;
+  width: 60vh;
+  margin-left: 10rem;
+  margin-top:7rem;
+  margin-bottom: 8rem;
+}
+
+.landing-page{
+    background-color: #ebebe7;
+    width: 99.2vw;
+    height: 100vh
+}
+
+.left-landing{
+  float:left;
+  background-color: #ebebe7;
+  height: 70vh;
+}
+
+.right-landing{
+  float:right;
+  background-color: #ebebe7;
+  margin-top: 15rem;
+  width: 32rem;
+  margin-right: 13rem;
+}
+
+.right-landing h3
+{
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding-bottom: 2rem;
+  color:#181D27;
+}
+
+.right-landing p{
+  font-size:1.5rem ;
+  opacity: 0.7;
+  text-align: justify;
+}
+
+.college-notes{
+  color: #aa3134;
+}
+
+.footer{
+  background-color: #cedf6d;
+  text-align: center;
+  padding: 3rem; 
+}
+/* #89a439
+#cedf6d
+#aa3134 */
