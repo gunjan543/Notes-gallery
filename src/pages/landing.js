@@ -24,6 +24,10 @@ export default function LandingPage() {
         <div className="right-landing" > 
             <h3><span className="college-notes">College Notes </span>Gallery</h3>
             <p>It is a platform for Peer-to-Peer Notes sharing, where faculties and toppers share their class notes with other students.</p>
+            <div class="button-7" id="button-7">
+                <div id="dub-arrow"><img src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-arrow-48-240.png?raw=true" alt="" /></div>
+                <a href="#">Let's Go!</a>
+           </div>
         </div>
         </div>
         <div className="branch">
