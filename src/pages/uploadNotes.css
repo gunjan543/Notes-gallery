@@ -1,12 +1,13 @@
 /* // 1) Name 
 // 2) email id
 // 3) techer/student 
-// 4) Year
+// 4) Class
 // 5) Semester 
 // 6) Branch
-// 7) subjects (add new subject)
-// 8) upload notes 
-// 9) 3 options  */
+// 7) Year
+// 9) subjects (add new subject)
+// 10) upload notes 
+// 8)) 3 options  */
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 body {
     height: 100%;
@@ -45,7 +46,7 @@ body {
     height: 100%;
     background-image: linear-gradient( 175deg, transparent, transparent 40px, rgba(120, 120, 120, 0.1) 100px, rgba(120, 120, 120, 0.1) 110px, transparent 220px, transparent), linear-gradient( 200deg, transparent 80%, rgba(50, 50, 50, 0.3)), radial-gradient( ellipse at right bottom, transparent, transparent 200px, rgba(80, 80, 80, 0.1) 260px, rgba(80, 80, 80, 0.1) 320px, transparent 400px, transparent);
     border: #2c2c2c solid 2px;
-    content: "Contact Us";
+    content: "Upload";
     font-family: 'Permanent Marker', cursive;
     font-size: 2.2em;
     color: rgba(238, 238, 238, 0.7);
@@ -158,7 +159,7 @@ select {
     overflow: hidden;
     font-family: 'Permanent Marker', cursive;
     border-radius: .25em;
-    margin-left: 1rem
+    margin-left: 2rem
   }
   select {
     flex: 1;
@@ -167,7 +168,7 @@ select {
     color: black;
     cursor: pointer;
     font-size: 16px;
-    width: 20rem;
+    width: 31rem;
   }
   /* Arrow */
   .select::after {
@@ -190,3 +191,16 @@ select {
     color:rgba(238, 238, 238, 0.8);
   }
  
+  .subject-name{
+      font-size: 2rem;
+      width: 13rem;  
+  }
+
+ .upload-file{
+     display: inline;
+     position: relative;
+ }
+
+ input[type=file] {
+    display: inline;
+}
