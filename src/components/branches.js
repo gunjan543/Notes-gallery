@@ -1,5 +1,5 @@
 import React from 'react';
-import './branches.css';
+import '../css/branches.css';
 export default function Branches(props){
   const cards = document.querySelectorAll(".card");
 // const onDocumentMouseMoveHandler = (evt) => {

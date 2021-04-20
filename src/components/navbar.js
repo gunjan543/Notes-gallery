@@ -1,5 +1,5 @@
 import React from 'react';
-import './navbar.css';
+import '../css/navbar.css';
 import logo from '../images/logo.png'
 export default function Navbar(){
   

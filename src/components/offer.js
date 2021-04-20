@@ -2,7 +2,7 @@ import React from 'react';
 import notes from '../images/notes.png';
 import important_questions from '../images/important_questions.png';
 import question_paper from '../images/question_paper.png';
-import './offer.css';
+import '../css/offer.css';
 export default function Offer(){
     return (
         <div className="offer">

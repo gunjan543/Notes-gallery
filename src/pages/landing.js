@@ -1,5 +1,5 @@
 import React from "react";
-import './landing.css';
+import '../css/landing.css';
 import landing_page from '../images/landing_page.jpg';
 import Offer from '../components/offer';
 import Branches from '../components/branches';

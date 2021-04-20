@@ -1,4 +1,4 @@
-export const Subjects =
+export const SubjectName =
 [
  { 
    "Semester" : "I",

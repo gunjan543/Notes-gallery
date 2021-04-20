@@ -1,19 +1,21 @@
 import React ,{ useState} from "react";
-import './uploadNotes.css';
+import '../css/uploadNotes.css';
 import $ from 'jquery';
-import { Subjects } from '../subjectsData';
+import { SubjectName } from '../subjectsData';
+var result ; 
+
 export default function UploadNotes() {
-	const [ semester, setSemester ] = useState('I');
 	const [ branch,setBranch ] = useState("");
+	result = SubjectName; 
+    console.log(result[0].Subjects[0]);
 
-	function setValues1(e)
-	{
-      setSemester(e.target.value);
-	}
-
-	function setValues2(e)
+	function setValues(e)
 	{
       setBranch(e.target.value);
+	  result = result.filter(obj => {
+		return obj.Branch === branch;
+	  });
+	  console.log(result);
 	}
 	
     $('.dropdown-el').click(function(e) {
@@ -65,7 +67,7 @@ export default function UploadNotes() {
 						<p>
 								<label>Semester: </label>
                                 <span class="select">
-								<select name="slct" id="slct" onChange={setValues1}>
+								<select name="slct" id="slct" >
 									<option selected disabled>Choose an option</option>
 									<option value="I" > I </option>
 									<option value="II" > II </option> 
@@ -82,7 +84,7 @@ export default function UploadNotes() {
 						<p>
 								<label>Branch:&nbsp;&nbsp; </label>
                                 <span class="select">
-								<select name="slct" id="slct" onChange={setValues2}>
+								<select name="slct" id="slct" onChange={setValues}>
 									<option selected disabled>Choose an option</option>
 									<option value="Computer Science" >Computer Science</option>
 									<option value="Electrical" >Electrical</option>
@@ -130,24 +132,35 @@ export default function UploadNotes() {
 
                                 <span class="select">
 								<select name="slct" id="slct">
+							    <option selected disabled>Choose an option</option>		
 									{
-									  Subjects.filter(semester => Subjects.semester).map(filteredSemester => (
-										Subjects.filter(branch => Subjects.branch).map(filteredBranch =>
-											(
-                           
-											)
-									  )) 	
-									}
-								<select name="slct" id="slct" onChange={setValues2}>
-									<option selected disabled>Choose an option</option>
-									<option value="Computer Science" >Computer Science</option>
-									<option value="Electrical" >Electrical</option>
-									<option value="Civil" >Civil</option>
-									<option value="Electronics and Communication" >Electronics and Communication</option>
-								</select>
+									   result.map((subject) => {
+										{ 
+											subject.Subjects.map((eachSubject) =>{
+											console.log(eachSubject);
+											   <p>{eachSubject}</p>
+												}	)
+										}
+									   })
+
+									}  
+									
+									</select>
 								</span>
     
   			            </p>
+						  <p>
+								<label>Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <span class="select">
+								<select name="slct" id="slct">
+									<option selected disabled>Choose an option</option>
+									<option value="1"> Notes </option>
+									<option value="2"> Important Questions </option>
+									<option value="3" > Question Papers </option>
+								</select>
+								</span>
+    
+  			            </p>  
 						<p>
 								<label >Document: </label>
 								<span className="upload-file">
