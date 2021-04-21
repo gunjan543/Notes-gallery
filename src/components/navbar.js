@@ -11,7 +11,7 @@ export default function Navbar(){
       <nav className="site-navbar">
         <a href="#home" className="site-logo"><img src={logo}></img></a>
         <ul>
-          <li><a href="#" className="upload hvr-bounce-to-top">Upload Notes</a></li>
+          <li><a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a></li>
         </ul>
       </nav>
     </div>

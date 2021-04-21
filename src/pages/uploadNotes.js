@@ -2,22 +2,14 @@ import React ,{ useState} from "react";
 import '../css/uploadNotes.css';
 import $ from 'jquery';
 import { SubjectName } from '../subjectsData';
-var result ; 
+ 
 
 export default function UploadNotes() {
-	const [ branch,setBranch ] = useState("");
-	result = SubjectName; 
-    console.log(result[0].Subjects[0]);
 
-	function setValues(e)
-	{
-      setBranch(e.target.value);
-	  result = result.filter(obj => {
-		return obj.Branch === branch;
-	  });
-	  console.log(result);
-	}
-	
+	let branch = localStorage.getItem('Branch');
+	let semester = localStorage.getItem('Semester');
+	let result = SubjectName.filter(obj => {return obj.Branch === branch})
+	result = result.filter(obj => {return obj.Semester === semester})
     $('.dropdown-el').click(function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -41,9 +33,9 @@ export default function UploadNotes() {
 								<input type="email" autocomplete="new-password"/>
 						</p>
 						<p>
-							<label>Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
-							<span class="select">
-							<select name="slct" id="slct">
+							<label>Role:</label>
+							<span class="select" style={{marginLeft:"73px"}}>
+							<select name="slct" id="slct" >
 								<option selected disabled>Choose an option</option>
 								<option value="1" >Teacher</option>
 								<option value="2" >Student</option>
@@ -52,8 +44,8 @@ export default function UploadNotes() {
     
   		            	</p>
 						<p>
-								<label>Class: &nbsp; &nbsp;&nbsp;</label>
-                                <span class="select">
+								<label>Class:</label>
+                                <span class="select" style={{marginLeft:"66px"}}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="1" >I year</option>
@@ -64,39 +56,10 @@ export default function UploadNotes() {
 								</span>
     
   			            </p>
+				
 						<p>
-								<label>Semester: </label>
-                                <span class="select">
-								<select name="slct" id="slct" >
-									<option selected disabled>Choose an option</option>
-									<option value="I" > I </option>
-									<option value="II" > II </option> 
-									<option value="III" > III </option>
-									<option value="IV" > IV </option>
-									<option value="V" > V </option>
-									<option value="VI" > VI </option>
-									<option value="VII" > VII </option>
-									<option value="VIII" > VIII </option>
-								</select>
-								</span>
-    
-  			            </p> 
-						<p>
-								<label>Branch:&nbsp;&nbsp; </label>
-                                <span class="select">
-								<select name="slct" id="slct" onChange={setValues}>
-									<option selected disabled>Choose an option</option>
-									<option value="Computer Science" >Computer Science</option>
-									<option value="Electrical" >Electrical</option>
-									<option value="Civil" >Civil</option>
-									<option value="Electronics and Communication" >Electronics and Communication</option>
-								</select>
-								</span>
-    
-  			            </p>
-						<p>
-								<label>Year: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <span class="select">
+								<label>Year:</label>
+                                <span class="select" style={{marginLeft:"77px"}}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="1" > 2021 </option>
@@ -116,8 +79,8 @@ export default function UploadNotes() {
     
   			            </p> 
 						<p>
-								<label>Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <span class="select">
+								<label>Type:</label>
+                                <span class="select" style={{marginLeft:"79px"}}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="1"> Notes </option>
@@ -128,30 +91,29 @@ export default function UploadNotes() {
     
   			            </p>  
 						  <p>
-								<label>Subject:&nbsp;&nbsp; </label>
+								<label>Subject:</label>
 
-                                <span class="select">
+                                <span class="select" style={{marginLeft:"41px"}}>
 								<select name="slct" id="slct">
 							    <option selected disabled>Choose an option</option>		
-									{
+								{
 									   result.map((subject) => {
 										{ 
-											subject.Subjects.map((eachSubject) =>{
-											console.log(eachSubject);
-											   <p>{eachSubject}</p>
+											return subject.Subjects.map((eachSubject) =>{
+											   return <option>{eachSubject}</option>
 												}	)
 										}
 									   })
 
 									}  
-									
+								
 									</select>
 								</span>
     
   			            </p>
 						  <p>
-								<label>Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <span class="select">
+								<label>Type:</label>
+                                <span class="select" style={{marginLeft:"79px"}}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="1"> Notes </option>
@@ -163,7 +125,7 @@ export default function UploadNotes() {
   			            </p>  
 						<p>
 								<label >Document: </label>
-								<span className="upload-file">
+								<span className="upload-file" style={{marginLeft:"12px"}}>
 								<input type="file" name="upload" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" className="subject-name"/>
 								</span>
 						</p>
