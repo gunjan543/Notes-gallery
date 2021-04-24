@@ -1,72 +1,99 @@
-import React ,{ useState} from "react";
-import {useHistory} from "react-router-dom";
+import Axios from 'axios'; 
+import React ,{ Component} from "react";
 import '../css/uploadNotes.css';
 import $ from 'jquery';
 import { SubjectName } from '../subjectsData';
- 
 
-export default function UploadNotes() {
-    let history = useHistory();
-	let branch = localStorage.getItem('Branch');
-	let semester = localStorage.getItem('Semester');
-	let result = SubjectName.filter(obj => {return obj.Branch === branch})
-	result = result.filter(obj => {return obj.Semester === semester})
-    $('.dropdown-el').click(function(e) {
+export default class UploadNotes extends Component {
+	constructor(props){
+        
+        super();
+        let {name,email} = JSON.parse(localStorage.getItem('user'));
+        let branch = localStorage.getItem('Branch');
+	    let semester = localStorage.getItem('Semester'); 
+		let result= [];
+		this.state = {
+            name: name,
+			email:email,
+            branch:branch,
+			semester:semester,
+			role:'',
+			year:'',
+			subject:'',
+			type:'',
+			unit:'',
+			document:'',
+			other:''
+        };
+		console.log(branch);
+		this.result = SubjectName.filter(obj => { return obj.Branch === branch });
+		this.result = this.result.filter(obj => { return obj.Semester === semester });
+        $('.dropdown-el').click(function(e) {
         e.preventDefault();
         e.stopPropagation();
         $(this).toggleClass('expanded');
         $('#'+$(e.target).attr('for')).prop('checked',true);
-      });
+         });
       $(document).click(function() {
         $('.dropdown-el').removeClass('expanded');
       });
+	
+	}
 
-	  function submit(e){
+	  handleChange = text => e => {
+        this.setState({ ...this.state, [text]: e.target.value });
+        console.log(this.state.role);
+      };
+	
+
+	
+	  submit = (e) =>{
         e.preventDefault();
-       history.push("/")
+       this.props.history.push("/")
     }
+    
+	handleSubmit = e => {
+        e.preventDefault();
+
+        this.setState({...this.state});
+        Axios
+        .post(`http://localhost:5000/api/uploadNotes`,
+          this.state
+           
+        )
+        .then(res => {
+            console.log(res);
+            
+        }
+        )
+        .catch(err => {
+            console.log(err);
+              
+            });
+            this.props.history.push('/')
+    };    
+	render(){
     return(
 
 <div class="shade">
 		<div class="blackboard">
-				<form class="upload-form" autocomplete="new-password" onSubmit={submit}>
-						<p>
-								<label>Name: </label>
-								<input type="text" autocomplete="new-password"/>
-						</p>
-						<p>
-								<label>Email: </label>
-								<input type="email" autocomplete="new-password"/>
-						</p>
+				<form class="upload-form" autocomplete="new-password" onSubmit={this.handleSubmit}>
 						<p>
 							<label>Role:</label>
-							<span class="select" style={{marginLeft:"73px"}}>
-							<select name="slct" id="slct" >
+					<span class="select" style={{marginLeft:"73px"}} onChange={this.handleChange('role')}>
+							<select name="role" id="slct" >
 								<option selected disabled>Choose an option</option>
-								<option value="1" >Teacher</option>
-								<option value="2" >Student</option>
+								<option value="Teacher" >Teacher</option>
+								<option value="Student" >Student</option>
 							</select>
 							</span>
     
   		            	</p>
-						<p>
-								<label>Class:</label>
-                                <span class="select" style={{marginLeft:"66px"}}>
-								<select name="slct" id="slct">
-									<option selected disabled>Choose an option</option>
-									<option value="1" >I year</option>
-									<option value="2" >II year</option>
-									<option value="3" >III year</option>
-									<option value="4" >IV year</option>
-								</select>
-								</span>
-    
-  			            </p>
 				
 						<p>
 								<label>Year:</label>
-                                <span class="select" style={{marginLeft:"77px"}}>
-								<select name="slct" id="slct">
+                                <span class="select" style={{marginLeft:"77px"}} onChange={this.handleChange('year')}>
+								<select name="year" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="1" > 2021 </option>
 									<option value="2" > 2020 </option> 
@@ -84,26 +111,14 @@ export default function UploadNotes() {
 								</span>
     
   			            </p> 
-						<p>
-								<label>Type:</label>
-                                <span class="select" style={{marginLeft:"79px"}}>
-								<select name="slct" id="slct">
-									<option selected disabled>Choose an option</option>
-									<option value="1"> Notes </option>
-									<option value="2"> Important Questions </option>
-									<option value="3" > Question Papers </option>
-								</select>
-								</span>
-    
-  			            </p>  
 						  <p>
 								<label>Subject:</label>
 
-                                <span class="select" style={{marginLeft:"41px"}}>
+                                <span class="select" style={{marginLeft:"41px"}} onChange={this.handleChange('subject')}>
 								<select name="slct" id="slct">
 							    <option selected disabled>Choose an option</option>		
 								{
-									   result.map((subject) => {
+									   this.result.map((subject) => {
 										{ 
 											return subject.Subjects.map((eachSubject) =>{
 											   return <option>{eachSubject}</option>
@@ -119,7 +134,7 @@ export default function UploadNotes() {
   			            </p>
 						  <p>
 								<label>Type:</label>
-                                <span class="select" style={{marginLeft:"79px"}}>
+                                <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('type')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="1"> Notes </option>
@@ -131,7 +146,7 @@ export default function UploadNotes() {
   			            </p>  
 						<p>
 								<label>Unit:</label>
-                                <span class="select" style={{marginLeft:"79px"}}>
+                                <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('unit')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="1"> All </option>
@@ -150,13 +165,15 @@ export default function UploadNotes() {
   			            </p>    
 						<p>
 								<label >Document: </label>
-								<span className="upload-file" style={{marginLeft:"12px"}}>
+								<span className="upload-file" style={{marginLeft:"0px"}} onChange={this.handleChange('document')}>
 								<input type="file" name="upload" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" className="subject-name"/>
 								</span>
 						</p>
 						<p>
+							<span onChange={this.handleChange('other')}>
 								<label>Other: </label>
 								<input type="text" autocomplete="new-password"/>
+								</span>
 						</p>
 						<p class="wipeout">
 								<input type="submit" value="Send" />
@@ -166,3 +183,4 @@ export default function UploadNotes() {
 </div>
     )
     }
+}

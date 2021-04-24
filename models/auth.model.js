@@ -29,9 +29,6 @@ const userScheama = new mongoose.Schema(
       default: ''
     }
   },
-  {
-    timestamps: true
-  }
 );
 
 // virtual
