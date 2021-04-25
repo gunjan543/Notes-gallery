@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const Note = require('../models/notes.model');
-
+const User = require('../models/auth.model')
 // Load Controllers
 const {
     registerController,
@@ -28,11 +28,12 @@ router.post('/login',
     validLogin, signinController)
 
 router.post('/activation', activationController)
+
 router.post('/uploadNotes',(req,res) =>{
     console.log(req.body);
     const{
      name,
-     email,
+     userId,
      branch,
      semester,
      role,
@@ -46,7 +47,7 @@ router.post('/uploadNotes',(req,res) =>{
    
     const note = new Note({
      name,
-     email,
+     userId,
      branch,
      semester,
      role,
@@ -65,13 +66,28 @@ router.post('/uploadNotes',(req,res) =>{
        }
        else{
            return res.json({
-               sucess:true,
+               success:true,
                message:'Notes Posted'
            })
        }
     })
 }
-       )
+)
+router.post('/getNotes', (req, res)=>{
+
+   console.log(req.body);
+    Note.find({userId:req.body.id}, function(err, notes){
+
+        if(!err){
+            console.log("success");
+            console.log(notes);
+            res.send(notes);
+        }
+        else{
+            console.log(err);
+        }
+    })
+})
 
 // forgot reset password
 router.put('/forgotpassword', forgotPasswordValidator, forgotPasswordController);

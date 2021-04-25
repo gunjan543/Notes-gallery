@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from "react-router-dom";
+import {isAuth} from "../helpers/auth";
+import {Redirect} from 'react-router-dom';
 import '../css/uploadNotes.css';
 import $ from 'jquery';
 
@@ -28,6 +30,7 @@ export default function FilterSubjects(props){
       });
     return(
         <>
+        {!isAuth() ? <Redirect to='/login' /> : null}
         <div class="shade">
 		<div class="blackboard" style={{top:"22%"}}>
 				<form class="form" autocomplete="new-password" onSubmit={submit}>

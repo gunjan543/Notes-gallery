@@ -7,6 +7,11 @@ const NotesSchema = new mongoose.Schema(
             trim: true,
             required: true
           },
+        userId:{
+            type:String,
+            trim:true,
+            required:true
+        }  ,
         role:{
             type: String,
             trim: true,

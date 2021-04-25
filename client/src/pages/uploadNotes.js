@@ -8,13 +8,13 @@ export default class UploadNotes extends Component {
 	constructor(props){
         
         super();
-        let {name,email} = JSON.parse(localStorage.getItem('user'));
+        let {name,_id} = JSON.parse(localStorage.getItem('user'));
         let branch = localStorage.getItem('Branch');
 	    let semester = localStorage.getItem('Semester'); 
 		let result= [];
 		this.state = {
             name: name,
-			email:email,
+			userId:_id,
             branch:branch,
 			semester:semester,
 			role:'',
@@ -25,6 +25,7 @@ export default class UploadNotes extends Component {
 			document:'',
 			other:''
         };
+		
 		console.log(branch);
 		this.result = SubjectName.filter(obj => { return obj.Branch === branch });
 		this.result = this.result.filter(obj => { return obj.Semester === semester });
