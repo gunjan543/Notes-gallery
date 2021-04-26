@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Navbar from "../components/navbar";
 import Axios from 'axios';
 import '../css/profile.css'
@@ -7,11 +7,16 @@ export default function Profile(){
    
     let[notes, setNotes] = useState([]);
     let {_id,name} = JSON.parse(localStorage.getItem('user'));
+    useEffect( ()=>{
+
+    
     Axios
     .post(`http://localhost:5000/api/getNotes`, {id:_id})
     .then( res=>{ 
         setNotes(res.data);
     })
+
+},[]);
 
     return(
         <>

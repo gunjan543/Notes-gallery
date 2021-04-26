@@ -23,7 +23,9 @@ export default class UploadNotes extends Component {
 			type:'',
 			unit:'',
 			document:'',
-			other:''
+			other:'',
+			uploadedDocument:{},
+			uploadedDocumentUrl:''
         };
 		
 		console.log(branch);
@@ -53,25 +55,36 @@ export default class UploadNotes extends Component {
        this.props.history.push("/")
     }
     
+	uploadDocument = () =>{
+		let formData = new FormData();
+		formData.append('file', this.state.uploadedDocument);
+		Axios.post('http://localhost:5000/api/uploadNotes1', formData)
+		.then((response) => {
+			response.data.success ? alert('File successfully uploaded') : alert('File already exists');
+			this.fetchRecent();
+		})
+		.catch(err => console.log(err));
+	}
 	handleSubmit = e => {
         e.preventDefault();
 
         this.setState({...this.state});
-        Axios
-        .post(`http://localhost:5000/api/uploadNotes`,
-          this.state
+		this.uploadDocument();
+        // Axios
+        // .post(`http://localhost:5000/api/uploadNotes`,
+        //   this.state
            
-        )
-        .then(res => {
-            console.log(res);
+        // )
+        // .then(res => {
+        //     console.log(res);
             
-        }
-        )
-        .catch(err => {
-            console.log(err);
+        // }
+        // )
+        // .catch(err => {
+        //     console.log(err);
               
-            });
-            this.props.history.push('/')
+        //     });
+        //     this.props.history.push('/')
     };    
 	render(){
     return(
@@ -92,24 +105,24 @@ export default class UploadNotes extends Component {
   		            	</p>
 				
 						<p>
-								<label>Year:</label>
-                                <span class="select" style={{marginLeft:"77px"}} onChange={this.handleChange('year')}>
-								<select name="year" id="slct">
-									<option selected disabled>Choose an option</option>
-									<option value="1" > 2021 </option>
-									<option value="2" > 2020 </option> 
-									<option value="3" > 2019 </option>
-									<option value="3" > 2018 </option>
-									<option value="3" > 2017 </option>
-									<option value="3" > 2016 </option>
-									<option value="3" > 2015 </option>
-									<option value="3" > 2014 </option>
-									<option value="3" > 2013 </option>
-									<option value="3" > 2012 </option>
-									<option value="3" > 2011 </option>
-									<option value="3" > 2010 </option>
-								</select>
-								</span>
+							<label>Year:</label>
+							<span class="select" style={{marginLeft:"77px"}} onChange={this.handleChange('year')}>
+							<select name="year" id="slct">
+								<option selected disabled>Choose an option</option>
+								<option value="1" > 2021 </option>
+								<option value="2" > 2020 </option> 
+								<option value="3" > 2019 </option>
+								<option value="3" > 2018 </option>
+								<option value="3" > 2017 </option>
+								<option value="3" > 2016 </option>
+								<option value="3" > 2015 </option>
+								<option value="3" > 2014 </option>
+								<option value="3" > 2013 </option>
+								<option value="3" > 2012 </option>
+								<option value="3" > 2011 </option>
+								<option value="3" > 2010 </option>
+							</select>
+							</span>
     
   			            </p> 
 						  <p>
@@ -167,7 +180,12 @@ export default class UploadNotes extends Component {
 						<p>
 								<label >Document: </label>
 								<span className="upload-file" style={{marginLeft:"0px"}} onChange={this.handleChange('document')}>
-								<input type="file" name="upload" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" className="subject-name"/>
+								<input type="file" name="upload" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" className="subject-name" onChange={(event) => {
+                                this.setState({
+                                    uploadedDocumentUrl: URL.createObjectURL(event.target.files[0]),
+                                    uploadedDocument: event.target.files[0],
+                                })
+                            }} />
 								</span>
 						</p>
 						<p>

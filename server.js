@@ -3,11 +3,19 @@ const morgan = require('morgan')
 const connectDB = require('./config/db')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const crypto = require('crypto');
+//
+const createError = require('http-errors');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const imageRouter = require('./routes/image')
 // Config dotev
 require('dotenv').config({
     path: './config/config.env'
 })
-
 
 const app = express()
 
@@ -27,8 +35,32 @@ if (process.env.NODE_ENV === 'development') {
     }))
     app.use(morgan('dev'))
 }
-
+app.use(cookieParser());
+app.use(methodOverride('_method'));
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 // Use Routes
+const storage = new GridFsStorage({
+    url: process.env.MONGO_URI,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString('hex') + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'uploads'
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+
+const upload = multer({ storage });
+app.use('/api/uploadNotes1', imageRouter(upload));
 app.use('/api', authRouter)
 app.use('/api', userRouter)
 
@@ -38,6 +70,8 @@ app.use((req, res) => {
         msg: "Page not founded"
     })
 })
+
+
 
 const PORT = process.env.PORT || 5000
 
