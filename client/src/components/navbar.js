@@ -1,9 +1,16 @@
 import React from 'react';
 import '../css/navbar.css';
 import logo from '../images/logo.png'
-import {isAuth} from "../helpers/auth";
+import {removeCookie, removeLocalStorage,isAuth} from '../helpers/auth';
+import {useHistory} from "react-router-dom";
+
 export default function Navbar(){
-  
+  let history = useHistory();
+  function signout(){
+    removeCookie('token');
+    removeLocalStorage('user');
+    history.push('/');
+  }
     return(<>
   <header className="header-area">
   
@@ -13,14 +20,14 @@ export default function Navbar(){
         <a href="#home" className="site-logo"><img src={logo}></img></a>
        
            {!isAuth()?
-           <ul>
+           <ul className="navbar-1">
             <li><a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a></li>
           <li><a href="/login" className="upload hvr-bounce-to-top">Login</a></li>
           </ul>
           :
-          <ul>
+          <ul className="navbar-2">
           <li><a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a></li>
-          <li><a href="/logout" className="upload hvr-bounce-to-top">Logout</a></li>
+          <li><a href="/" className="upload hvr-bounce-to-top" onClick={signout}>Logout</a></li>
           <li><a href="/profile" className="upload hvr-bounce-to-top">Profile</a></li>
           </ul>  
            }

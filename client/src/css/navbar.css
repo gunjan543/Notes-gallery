@@ -42,9 +42,8 @@
     display: flex;
   }
   .site-navbar ul li a {
-    color: rgb(226, 205, 205);
-    font-size: 20px;
-    
+    color: rgba(161, 56, 56);
+    font-size: 18px;
     display: block;
     text-decoration: none;
     text-transform: uppercase;
@@ -54,7 +53,6 @@
   }
 
   .upload{
-      background-color: rgba(161, 56, 56);
       padding: 10px;
       border-radius: 5px;
   }

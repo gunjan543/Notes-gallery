@@ -32,9 +32,9 @@ export default function FilterSubjects(props){
         <>
         {!isAuth() ? <Redirect to='/login' /> : null}
         <div class="shade">
-		<div class="blackboard" style={{top:"22%"}}>
+		<div class="blackboard" style={{top:"20%"}}>
 				<form class="form" autocomplete="new-password" onSubmit={submit}>
-                         <p>
+                         <p style={{marginTop:"8rem",marginLeft:"3em"}}>
                             <label>Semester: </label>
                             <span class="select">
                             <select name="slct" id="slct" onChange={onSemesterChange}>
@@ -50,9 +50,9 @@ export default function FilterSubjects(props){
                             </select>
                             </span>
  			            </p> 
-						<p>
-							<label>Branch:</label>
-                            <span class="select" style={{marginLeft:"3em"}}>
+						<p style={{marginLeft:"3em",paddingRight:"5em"}}>
+							<label style={{marginRight:"1em"}}>Branch:</label>
+                            <span class="select" >
 								<select name="slct" id="slct" onChange={onBranchChange}>
 									<option selected disabled>Choose an option</option>
 									<option value="Computer Science" >Computer Science</option>
@@ -65,7 +65,7 @@ export default function FilterSubjects(props){
                         
                   
                           <p class="wipeout">
-								<input type="submit" value="Send" />
+								<input type="submit" value="Next" />
 						</p>
                     </form>
                 </div>

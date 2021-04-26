@@ -138,9 +138,9 @@ export default class UploadNotes extends Component {
                                 <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('type')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
-									<option value="1"> Notes </option>
-									<option value="2"> Important Questions </option>
-									<option value="3" > Question Papers </option>
+									<option value="Notes"> Notes </option>
+									<option value="Important Questions"> Important Questions </option>
+									<option value="Question Papers"> Question Papers </option>
 								</select>
 								</span>
     
@@ -150,15 +150,15 @@ export default class UploadNotes extends Component {
                                 <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('unit')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
-									<option value="1"> All </option>
-									<option value="2"> 1 </option>
-									<option value="3" > 2 </option>
+									<option value="All"> All </option>
+									<option value="1"> 1 </option>
+									<option value="2" > 2 </option>
 									<option value="3" > 3 </option>
-									<option value="3" > 4 </option>
-									<option value="3" > 5 </option>
-									<option value="3" > 6 </option>
-									<option value="3" > 7 </option>
-									<option value="3" > 8 </option>
+									<option value="4" > 4 </option>
+									<option value="5" > 5 </option>
+									<option value="6" > 6 </option>
+									<option value="7" > 7 </option>
+									<option value="8" > 8 </option>
 
 								</select>
 								</span>
@@ -177,7 +177,7 @@ export default class UploadNotes extends Component {
 								</span>
 						</p>
 						<p class="wipeout">
-								<input type="submit" value="Send" />
+								<input type="submit" value="Submit" />
 						</p>
 				</form>
 		</div>
