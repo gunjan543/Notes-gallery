@@ -4,6 +4,7 @@ import '../css/uploadNotes.css';
 import $ from 'jquery';
 import { SubjectName } from '../subjectsData';
 
+
 export default class UploadNotes extends Component {
 	constructor(props){
         
@@ -22,7 +23,6 @@ export default class UploadNotes extends Component {
 			subject:'',
 			type:'',
 			unit:'',
-			document:'',
 			other:'',
 			uploadedDocument:{},
 			uploadedDocumentUrl:''
@@ -37,20 +37,27 @@ export default class UploadNotes extends Component {
         $(this).toggleClass('expanded');
         $('#'+$(e.target).attr('for')).prop('checked',true);
          });
-      $(document).click(function() {
-        $('.dropdown-el').removeClass('expanded');
-      });
+		$(document).click(function() {
+			$('.dropdown-el').removeClass('expanded');
+		});
 	
 	}
 
-	  handleChange = text => e => {
-        this.setState({ ...this.state, [text]: e.target.value });
-        console.log(this.state.role);
-      };
-	
+	uploadDoc = (e) =>{
+		this.setState({...this.state, uploadedDocument:e.target.files[0]}, ()=>{
+			console.log(this.state.uploadedDocument);
+		});
+		
+	}
 
+
+	handleChange = text => e => {
+		
+	this.setState({ ...this.state, [text]: e.target.value });
 	
-	  submit = (e) =>{
+	};
+	
+	submit = (e) =>{
         e.preventDefault();
        this.props.history.push("/")
     }
@@ -61,30 +68,31 @@ export default class UploadNotes extends Component {
 		Axios.post('http://localhost:5000/api/uploadNotes1', formData)
 		.then((response) => {
 			response.data.success ? alert('File successfully uploaded') : alert('File already exists');
-			this.fetchRecent();
+			Axios
+			.post(`http://localhost:5000/api/uploadNotes`,
+			  this.state
+			   
+			)
+			.then(res => {
+				console.log(res);
+				
+			}
+			)
+			.catch(err => {
+				console.log(err);
+				  
+				});
+				this.props.history.push('/')
 		})
 		.catch(err => console.log(err));
 	}
+	
 	handleSubmit = e => {
         e.preventDefault();
 
         this.setState({...this.state});
 		this.uploadDocument();
-        // Axios
-        // .post(`http://localhost:5000/api/uploadNotes`,
-        //   this.state
-           
-        // )
-        // .then(res => {
-        //     console.log(res);
-            
-        // }
-        // )
-        // .catch(err => {
-        //     console.log(err);
-              
-        //     });
-        //     this.props.history.push('/')
+      
     };    
 	render(){
     return(
@@ -151,9 +159,9 @@ export default class UploadNotes extends Component {
                                 <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('type')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
-									<option value="1"> Notes </option>
-									<option value="2"> Important Questions </option>
-									<option value="3" > Question Papers </option>
+									<option value="Notes"> Notes </option>
+									<option value="Important Questions"> Important Questions </option>
+									<option value="Question Papers"> Question Papers </option>
 								</select>
 								</span>
     
@@ -163,39 +171,35 @@ export default class UploadNotes extends Component {
                                 <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('unit')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
-									<option value="1"> All </option>
-									<option value="2"> 1 </option>
-									<option value="3" > 2 </option>
+									<option value="All"> All </option>
+									<option value="1"> 1 </option>
+									<option value="2" > 2 </option>
 									<option value="3" > 3 </option>
-									<option value="3" > 4 </option>
-									<option value="3" > 5 </option>
-									<option value="3" > 6 </option>
-									<option value="3" > 7 </option>
-									<option value="3" > 8 </option>
+									<option value="4" > 4 </option>
+									<option value="5" > 5 </option>
+									<option value="6" > 6 </option>
+									<option value="7" > 7 </option>
+									<option value="8" > 8 </option>
 
 								</select>
 								</span>
     
-  			            </p>    
-						<p>
-								<label >Document: </label>
-								<span className="upload-file" style={{marginLeft:"0px"}} onChange={this.handleChange('document')}>
-								<input type="file" name="upload" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" className="subject-name" onChange={(event) => {
-                                this.setState({
-                                    uploadedDocumentUrl: URL.createObjectURL(event.target.files[0]),
-                                    uploadedDocument: event.target.files[0],
-                                })
-                            }} />
-								</span>
-						</p>
-						<p>
+  			            </p>   
+						  <p>
 							<span onChange={this.handleChange('other')}>
 								<label>Other: </label>
 								<input type="text" autocomplete="new-password"/>
 								</span>
+						</p> 
+						<p>
+								<label >Document: </label>
+								<span className="upload-file" style={{marginLeft:"0px"}}>
+								<input type="file" name="upload" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" className="subject-name" onChange={this.uploadDoc}/>
+								</span>
 						</p>
+
 						<p class="wipeout">
-								<input type="submit" value="Send" />
+								<input type="submit" value="Submit" />
 						</p>
 				</form>
 		</div>

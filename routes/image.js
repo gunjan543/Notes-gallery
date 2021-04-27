@@ -3,8 +3,6 @@ const imageRouter = express.Router();
 const mongoose = require('mongoose');
 const Image = require('../models/image.model');
 
-
-
 module.exports = (upload) => {
     const url = process.env.MONGO_URI;
     const connect = mongoose.createConnection(url, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -17,19 +15,14 @@ module.exports = (upload) => {
             bucketName: "uploads"
         });
     });
-
     /*
         POST: Upload a single image/file to Image collection
     */
     imageRouter.route('/')
         .post(upload.single('file'), (req, res, next) => {
-            console.log(req.body);
+            console.log(req.file);
             // check for existing images
-            
-         
-                    
-
-                    let newImage = new Image({
+                  let newImage = new Image({
                         filename: req.file.filename,
                         fileId: req.file.id,
                     });
@@ -42,7 +35,9 @@ module.exports = (upload) => {
                                 image,
                             });
                         })
-                        .catch(err => res.status(500).json(err));
+                        .catch(err => {
+                            console.log(err)
+                            res.status(500).json(err)});
                 
         })
         .get((req, res, next) => {

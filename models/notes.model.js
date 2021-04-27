@@ -1,5 +1,21 @@
 const mongoose = require('mongoose');
 
+const ImageSchema = new mongoose.Schema({
+    filename: {
+        required: true,
+        type: String,
+    },
+    fileId: {
+        required: true,
+        type: String,
+    },
+    createdAt: {
+        default: Date.now(),
+        type: Date,
+    },
+});
+
+
 const NotesSchema = new mongoose.Schema(
     {
         name: {
@@ -39,7 +55,7 @@ const NotesSchema = new mongoose.Schema(
             required: true
         },
         document:{
-            type: String,
+            type: [ImageSchema],
             trim: true,
             required: true
         },

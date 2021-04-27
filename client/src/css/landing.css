@@ -55,7 +55,11 @@
 .footer{
   background-color: #cedf6d;
   text-align: center;
-  padding: 3rem; 
+  padding: 3rem;
+  bottom: 0;
+  position: fixed;
+  /* left: 0; */
+  width: 100%;
 }
 
 .button-7 {

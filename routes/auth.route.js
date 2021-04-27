@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router();
 const Note = require('../models/notes.model');
-const User = require('../models/auth.model')
+const User = require('../models/auth.model');
+var MongoClient = require("mongodb").MongoClient;
+var Binary = require("mongodb").Binary;
 // Load Controllers
 const {
     registerController,
