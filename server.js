@@ -40,7 +40,7 @@ app.use(methodOverride('_method'));
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 // Use Routes
-const storage = new GridFsStorage({
+const storage = new GridFsStorage({ 
     url: process.env.MONGO_URI,
     file: (req, file) => {
         return new Promise((resolve, reject) => {

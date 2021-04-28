@@ -9,7 +9,7 @@ module.exports = (upload) => {
 
     let gfs;
 
-    connect.once('open', () => {
+    connect.once('open', () => { 
         // initialize stream
         gfs = new mongoose.mongo.GridFSBucket(connect.db, {
             bucketName: "uploads"
@@ -20,11 +20,33 @@ module.exports = (upload) => {
     */
     imageRouter.route('/')
         .post(upload.single('file'), (req, res, next) => {
-            console.log(req.file);
-            // check for existing images
+         
+            const{
+                name,
+                userId,
+                branch,
+                semester,
+                role,
+                year,
+                subject,
+                type,
+                unit,
+                other
+               }=req.body;
                   let newImage = new Image({
-                        filename: req.file.filename,
-                        fileId: req.file.id,
+                    name,
+                    userId,
+                    branch,
+                    semester,
+                    role,
+                    year,
+                    subject,
+                    type,
+                    unit,
+                    other,
+                    filename: req.file.filename,
+                    fileId: req.file.id,
+                        
                     });
 
                     newImage.save()
@@ -38,17 +60,16 @@ module.exports = (upload) => {
                         .catch(err => {
                             console.log(err)
                             res.status(500).json(err)});
-                
-        })
-        .get((req, res, next) => {
-            Image.find({})
-                .then(images => {
-                    res.status(200).json({
-                        success: true,
-                        images,
-                    });
-                })
-                .catch(err => res.status(500).json(err));
+                    })
+                    .get((req, res, next) => {
+                        Image.find({})
+                            .then(images => {
+                                res.status(200).json({
+                                    success: true,
+                                    images,
+                                });
+                            })
+                            .catch(err => res.status(500).json(err));
         });
 
     /*
