@@ -1,6 +1,8 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import '../css/branches.css';
 export default function Branches(props){
+  let history=useHistory();
   const cards = document.querySelectorAll(".card");
 // const onDocumentMouseMoveHandler = (evt) => {
 //   evt.preventDefault();
@@ -48,11 +50,11 @@ cards.forEach((card) => {
     }, 1000);
   });
 });
-
+ 
     return(<>
     <div class="overlay">
     <div class="card ">
-    <div class="card__title">{props.name}</div>
+    <div class="card__title" onClick={()=>{localStorage.setItem('branchname',props.name); history.push('/displayNotes')}}>{props.name}</div>
     </div>
   </div>
     </>

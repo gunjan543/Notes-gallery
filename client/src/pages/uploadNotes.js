@@ -44,10 +44,10 @@ export default class UploadNotes extends Component {
 	}
 
 	uploadDoc = (e) =>{
-		this.setState({...this.state, uploadedDocument:e.target.files[0]}, ()=>{
-
-		});
-		
+		this.setState({...this.state,
+			 uploadedDocumentUrl:URL.createObjectURL(e.target.files[0]),
+			 uploadedDocument:e.target.files[0]});
+		console.log(URL.createObjectURL(e.target.files[0]));
 	}
 
 
@@ -76,7 +76,7 @@ export default class UploadNotes extends Component {
 		formData.append('unit', this.state.unit);
 		formData.append('other', this.state.other);
 		console.log(formData);
-		Axios.post('http://localhost:5000/api/uploadNotes1', formData)
+		Axios.post('http://localhost:5000/api/uploadNotes', formData)
 		.then((response) => {
 			response.data.success ? alert('File successfully uploaded') : alert('File already exists');
 			this.props.history.push('/');

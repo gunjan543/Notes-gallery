@@ -8,6 +8,7 @@ import Login from "./pages/Login/login";
 import Signup from "./pages/Login/Signup";
 import Activate from "./pages/Login/activate";
 import Profile from "./pages/Profile";
+import DisplayNotes from "./pages/DisplayNotes"
 function App() {
   return (
     
@@ -20,6 +21,8 @@ function App() {
     <Route path='/users/activate/:token' exact render={props => <Activate {...props} />} />
     <Route path="/register" exact strict component ={Signup} />
     <Route path="/profile" exact strict component ={Profile} />
+    <Route path="/displayNotes" exact strict component ={DisplayNotes} />
+    
     </BrowserRouter>
     </div>
     

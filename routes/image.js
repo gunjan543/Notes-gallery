@@ -18,7 +18,7 @@ module.exports = (upload) => {
     /*
         POST: Upload a single image/file to Image collection
     */
-    imageRouter.route('/')
+    imageRouter.route('/uploadNotes')
         .post(upload.single('file'), (req, res, next) => {
          
             const{
@@ -71,11 +71,33 @@ module.exports = (upload) => {
                             })
                             .catch(err => res.status(500).json(err));
         });
+        imageRouter.route('/getNotes')
+        .post((req,res,next)=>{
+            Image.find({branch:req.body.branchname})
+            .then(documents => {
+                res.status(200).json({
+                    success: true,
+                    documents,
+                });
+            })
+            .catch(err => res.status(500).json(err));
+            
+        })
 
-    /*
-        GET: Delete an image from the collection
-    */
-    imageRouter.route('/api/uploadNotes/delete/:id')
+    imageRouter.route('/getProfileNotes')
+    .post((req,res,next) =>{
+       
+        Image.find({userId:req.body.id})
+        .then(documents =>{
+            res.status(200).json({
+                success:true,
+                documents,
+            });
+        
+        })
+        .catch(err=> res.status(500).json(err));
+    })
+    imageRouter.route('/deleteNote/:id')
         .get((req, res, next) => {
             Image.findOne({ _id: req.params.id })
                 .then((image) => {
@@ -155,7 +177,7 @@ module.exports = (upload) => {
     /*
         GET: Fetches a particular file by filename
     */
-    imageRouter.route('/api/uploadNotes/file/:filename')
+    imageRouter.route('/file/:filename')
         .get((req, res, next) => {
             gfs.find({ filename: req.params.filename }).toArray((err, files) => {
                 if (!files[0] || files.length === 0) {
@@ -164,11 +186,12 @@ module.exports = (upload) => {
                         message: 'No files available',
                     });
                 }
+                gfs.openDownloadStreamByName(req.params.filename).pipe(res);
 
-                res.status(200).json({
-                    success: true,
-                    file: files[0],
-                });
+                // res.status(200).json({
+                //     success: true,
+                //     file: files[0],
+                // });
             });
         });
 

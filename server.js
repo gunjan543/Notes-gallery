@@ -60,7 +60,7 @@ const storage = new GridFsStorage({
 });
 
 const upload = multer({ storage });
-app.use('/api/uploadNotes1', imageRouter(upload));
+app.use('/api', imageRouter(upload));
 app.use('/api', authRouter)
 app.use('/api', userRouter)
 

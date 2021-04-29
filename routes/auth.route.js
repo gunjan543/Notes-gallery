@@ -31,66 +31,21 @@ router.post('/login',
 
 router.post('/activation', activationController)
 
-router.post('/uploadNotes',(req,res) =>{
-    console.log(req.body);
-    const{
-     name,
-     userId,
-     branch,
-     semester,
-     role,
-     year,
-     subject,
-     type,
-     unit,
-     document,
-     other
-    }=req.body;
-   
-    const note = new Note({
-     name,
-     userId,
-     branch,
-     semester,
-     role,
-     year,
-     subject,
-     type,
-     unit,
-     document,
-     other
-    });
-    note.save((err, note)=>{
-       if(err)
-       {   console.log(err);
-           return res.status(401);
-        
-       }
-       else{
-           return res.json({
-               success:true,
-               message:'Notes Posted'
-           })
-       }
-    })
-    
-}
-)
-router.post('/getNotes', (req, res)=>{
+// router.post('/getNotes', (req, res)=>{
 
-   console.log(req.body);
-    Note.find({userId:req.body.id}, function(err, notes){
+//    console.log(req.body);
+//     Note.find({userId:req.body.id}, function(err, notes){
 
-        if(!err){
-            console.log("success");
-            console.log(notes);
-            res.send(notes);
-        }
-        else{
-            console.log(err);
-        }
-    })
-})
+//         if(!err){
+//             console.log("success");
+//             console.log(notes);
+//             res.send(notes);
+//         }
+//         else{
+//             console.log(err);
+//         }
+//     })
+// })
 
 // forgot reset password
 router.put('/forgotpassword', forgotPasswordValidator, forgotPasswordController);

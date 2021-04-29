@@ -55,10 +55,10 @@ export default function FilterSubjects(props){
                             <span class="select" >
 								<select name="slct" id="slct" onChange={onBranchChange}>
 									<option selected disabled>Choose an option</option>
-									<option value="Computer Science" >Computer Science</option>
-									<option value="Electrical" >Electrical</option>
-									<option value="Civil" >Civil</option>
-									<option value="Electronics and Communication" >Electronics and Communication</option>
+									<option value="Computer Science Engineering" >Computer Science</option>
+									<option value="Electrical Engineering" >Electrical</option>
+									<option value="Civil Engineering" >Civil</option>
+									<option value="Electronics and Communication Engineering"  >Electronics and Communication</option>
 								</select>
 							</span>
   			            </p>
