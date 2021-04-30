@@ -8,9 +8,9 @@ export default function Offer(){
         <div className="offer">
             <h3>What we offer !</h3>
             <div className="row">
-            <div className="col-sm-4 offer-img-1"><img src={notes}></img><p>University Notes</p></div>
-            <div className="col-sm-4 offer-img-2"><img src={important_questions}></img><p>Important Questions</p></div>
-            <div className="col-sm-4 offer-img-3"><img src={question_paper}></img><p>Previous Year Question Papers</p></div>
+            <div className="col-md-4 col-sm-6 col-xs-12 offer-img"><img src={notes}></img><p>University Notes</p></div>
+            <div className="col-md-4 col-sm-6 col-xs-12 offer-img"><img src={important_questions}></img><p>Important Questions</p></div>
+            <div className="col-md-4 col-sm-6 col-xs-12 offer-img"><img src={question_paper}></img><p>Previous Year Question Papers</p></div>
             </div>
         </div>
     )

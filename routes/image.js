@@ -73,7 +73,7 @@ module.exports = (upload) => {
         });
         imageRouter.route('/getNotes')
         .post((req,res,next)=>{
-            Image.find({branch:req.body.branchname})
+            Image.find({subject:req.body.subjectName,type:req.body.type})
             .then(documents => {
                 res.status(200).json({
                     success: true,

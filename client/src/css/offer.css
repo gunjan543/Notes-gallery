@@ -1,6 +1,4 @@
-.offer{
-    margin: 10rem 5rem;
-}
+
 
 .offer h3{
  text-align: center;
@@ -10,40 +8,15 @@
  font-size: 3rem;
 }
 
-.offer-img-1 img{
- width: 70%;
- height: 100%;
+.offer-img img{ 
+ width: 30rem;
+ height: 26rem;
  margin-top: 7rem;
  margin-left: 14rem;
 }
 
-.offer-img-2 img{
-width: 60%;
-height: 60%; 
-margin-left: 10rem;
-}
-
-.offer-img-3 img{
-width: 60%;
-height: 100%;
-margin-top: 7rem;
-}
-
-.offer-img-1 p{
-    font-size: 2rem;
+.offer-img p{
     text-align: center;
-    color: #181D27;
-    margin-top: 2rem;
-    margin-left: 11rem;
-}
-
-.offer-img-2 p{
+    margin-top: 1rem;
     font-size: 2rem;
-    margin-left: 20rem;
-}
-
-.offer-img-3 p{
-    font-size: 2rem;
-    margin-left: 7rem;
-    margin-top: 3rem;
 }

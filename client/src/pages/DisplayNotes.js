@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Navbar from "../components/navbar";
+import '../css/displayNotes.css'
 export default class DisplayNotes extends Component{
 
     constructor(props){
@@ -9,8 +11,9 @@ export default class DisplayNotes extends Component{
         };
     }
     componentDidMount=()=>{
-        let branchname= localStorage.getItem('branchname');
-        axios.post('http://localhost:5000/api/getNotes', {branchname})
+        let subjectName= localStorage.getItem('subjectName');
+        let type= localStorage.getItem('type');
+        axios.post('http://localhost:5000/api/getNotes', {subjectName,type})
         .then(response=>{
             console.log(response);
           this.setState({documents:response.data.documents})  
@@ -22,11 +25,15 @@ export default class DisplayNotes extends Component{
     render(){
         return(
         <>
-            <div>
+        <Navbar></Navbar>
+            <div className="display">
                 {this.state.documents.map((file)=>(
-                <div>
+                <div className="display-notes">
+                    <h3>{file.subject} - Unit {file.unit}</h3>
+                    <h2>{file.other} {file.year}</h2>
+                    <p>By - {file.name} ({file.role})</p>
                     <p>
-                        <a href={'http://localhost:5000/api/file/'+file.filename}>Click</a>
+                        <a href={'http://localhost:5000/api/file/'+file.filename} >View Notes</a>
                     </p>
                 </div>
                 )
@@ -34,6 +41,7 @@ export default class DisplayNotes extends Component{
                 )}
             </div>
             
+            <footer className="footer"><p>© Designed & Maintained : Aditi Singh and Gunjan Agarwal| Computer Science & Engineering |  RCEW 2021</p></footer>    
 
         </>
 

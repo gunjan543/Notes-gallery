@@ -4,6 +4,7 @@ import {isAuth} from "../helpers/auth";
 import {Redirect} from 'react-router-dom';
 import '../css/uploadNotes.css';
 import $ from 'jquery';
+import Navbar from "../components/navbar";
 
 export default function FilterSubjects(props){
     let history = useHistory();
@@ -30,6 +31,7 @@ export default function FilterSubjects(props){
       });
     return(
         <>
+        <Navbar></Navbar>
         {!isAuth() ? <Redirect to='/login' /> : null}
         <div class="shade">
 		<div class="blackboard" style={{top:"20%"}}>
@@ -40,7 +42,7 @@ export default function FilterSubjects(props){
                             <select name="slct" id="slct" onChange={onSemesterChange}>
                                 <option selected disabled>Choose an option</option>
                                 <option value="I" > I </option>
-                                <option value="II" > II </option> 
+                                <option value="I" > II </option> 
                                 <option value="III" > III </option>
                                 <option value="IV" > IV </option>
                                 <option value="V" > V </option>

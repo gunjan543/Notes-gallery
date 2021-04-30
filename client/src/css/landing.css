@@ -56,10 +56,11 @@
   background-color: #cedf6d;
   text-align: center;
   padding: 3rem;
+
+  left: 0;
   bottom: 0;
-  position: fixed;
-  /* left: 0; */
   width: 100%;
+  margin-bottom: 0px;
 }
 
 .button-7 {
@@ -124,13 +125,21 @@
   left: 150px;
 }
 
-@media screen and (min-width:1000px) {
-  h1 {
-    font-size: 2.2em;
+@media screen and (max-width:1400px) {
+  .left-landing{
+    display: none;
   }
-  #container {
-    width: 50%;
+  .right-landing{
+    width: 100vw;
+    margin-right: 0;
+    float: none;
+    text-align: center;
+    padding: 0rem 25%;
   }
+  .right-landing p{
+    text-align: center;
+  }
+  
 }
 /* #89a439
 #cedf6d

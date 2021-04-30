@@ -8,7 +8,9 @@ import Login from "./pages/Login/login";
 import Signup from "./pages/Login/Signup";
 import Activate from "./pages/Login/activate";
 import Profile from "./pages/Profile";
-import DisplayNotes from "./pages/DisplayNotes"
+import DisplayNotes from "./pages/DisplayNotes";
+import Subjects from "./pages/Subjects";
+import Type from "./pages/Type";
 function App() {
   return (
     
@@ -22,7 +24,8 @@ function App() {
     <Route path="/register" exact strict component ={Signup} />
     <Route path="/profile" exact strict component ={Profile} />
     <Route path="/displayNotes" exact strict component ={DisplayNotes} />
-    
+    <Route path="/subjects" exact strict component ={Subjects} />
+    <Route path="/type" exact strict component ={Type} />
     </BrowserRouter>
     </div>
     

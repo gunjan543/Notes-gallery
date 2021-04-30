@@ -42,7 +42,7 @@ export default function Profile(){
                     <tr>
                     <th>Subject Name</th>
                     <th>Type</th>
-                    <th>Branch</th>
+                    <th>Unit</th>
                     <th>Semester</th>
                     <th>Preview</th>
                     <th>Delete</th>
@@ -58,7 +58,7 @@ export default function Profile(){
                             <tr>
                     <td>{note.subject}</td>
                     <td>{note.type}</td>
-                    <td>{note.branch}</td>
+                    <td>{note.unit}</td>
                     <td>{note.semester}</td>
                     <td> <a href={'http://localhost:5000/api/file/'+note.filename}>Preview</a></td>
                     <td onClick={()=>{deleteNote(note._id)}}><svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash delete" viewBox="0 0 16 16">
@@ -72,7 +72,7 @@ export default function Profile(){
                 </table>
             </div>
         </section>
-        <div className="footer"><p>© Designed & Maintained : Aditi Singh and Gunjan Agarwal| Computer Science & Engineering |  RCEW 2021</p></div>
+       
         </>
     )
 } 

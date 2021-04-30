@@ -60,6 +60,9 @@ const ImageSchema = new Schema({
         default: Date.now(),
         type: Date,
     },
+    other:{
+        type:String
+    }
 });
 
 const Image = mongoose.model('Image', ImageSchema);

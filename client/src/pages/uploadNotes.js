@@ -3,7 +3,7 @@ import React ,{ Component} from "react";
 import '../css/uploadNotes.css';
 import $ from 'jquery';
 import { SubjectName } from '../subjectsData';
-
+import Navbar from "../components/navbar";
 
 export default class UploadNotes extends Component {
 	constructor(props){
@@ -78,8 +78,7 @@ export default class UploadNotes extends Component {
 		console.log(formData);
 		Axios.post('http://localhost:5000/api/uploadNotes', formData)
 		.then((response) => {
-			response.data.success ? alert('File successfully uploaded') : alert('File already exists');
-			this.props.history.push('/');
+			this.props.history.push('/profile');
 		})
 		.catch(err => console.log(err));
 	}
@@ -95,6 +94,7 @@ export default class UploadNotes extends Component {
     return(
 
 <div class="shade">
+	<Navbar></Navbar>
 		<div class="blackboard">
 				<form class="upload-form" autocomplete="new-password" onSubmit={this.handleSubmit}>
 						<p>
@@ -114,18 +114,18 @@ export default class UploadNotes extends Component {
 							<span class="select" style={{marginLeft:"77px"}} onChange={this.handleChange('year')}>
 							<select name="year" id="slct">
 								<option selected disabled>Choose an option</option>
-								<option value="1" > 2021 </option>
-								<option value="2" > 2020 </option> 
-								<option value="3" > 2019 </option>
-								<option value="3" > 2018 </option>
-								<option value="3" > 2017 </option>
-								<option value="3" > 2016 </option>
-								<option value="3" > 2015 </option>
-								<option value="3" > 2014 </option>
-								<option value="3" > 2013 </option>
-								<option value="3" > 2012 </option>
-								<option value="3" > 2011 </option>
-								<option value="3" > 2010 </option>
+								<option value="2021" > 2021 </option>
+								<option value="2020" > 2020 </option> 
+								<option value="2019" > 2019 </option>
+								<option value="2018" > 2018 </option>
+								<option value="2017" > 2017 </option>
+								<option value="2016" > 2016 </option>
+								<option value="2015" > 2015 </option>
+								<option value="2014" > 2014 </option>
+								<option value="2013" > 2013 </option>
+								<option value="2012" > 2012 </option>
+								<option value="2011" > 2011 </option>
+								<option value="2010" > 2010 </option>
 							</select>
 							</span>
     

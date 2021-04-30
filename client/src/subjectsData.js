@@ -2,7 +2,7 @@ export const SubjectName =
 [
  { 
    "Semester" : "I",
-   "Branch" : "Computer Science" ,
+   "Branch" : "Computer Science Engineering" ,
    "Subjects" :["Engineering mathematics -I",
     "Engineering",
     "Mathematics-II",
@@ -14,24 +14,11 @@ export const SubjectName =
     "Basic Mechanical Engineering"]
  },
  {
-    "Semester" : "II",
-    "Branch" : "Computer Science" ,
-    "Subjects" :["Engineering mathematics -I",
-        "Engineering",
-        "Mathematics-II",
-        "Engineering Physics ",
-        "Engineering Chemistry",
-        "Communication Skills",
-        "Human Values",
-        "Programming for Problem Solving",
-        "Basic Mechanical Engineering"]
- },
- {
     "Semester" : "III",
-    "Branch" : "Computer Science" , 
+    "Branch" : "Computer Science Engineering" , 
     "Subjects" :[
         "Advanced Engineering Mathematics",
-        "Technical Communication/ Managerial Economics and Financial Accounting ",
+        "Technical Communication Managerial Economics and Financial Accounting ",
         "Digital Electronics ",
         "Data Structures and Algorithms",
         "Object Oriented Programming",
@@ -40,10 +27,10 @@ export const SubjectName =
  },
  {
     "Semester" : "IV",
-    "Branch" : "Computer Science" , 
+    "Branch" : "Computer Science Engineering" , 
     "Subjects" :[
         "Discrete Mathematics Structure",
-        "Managerial Economicsand Financial Accounting",
+        "Managerial Economics and Financial Accounting",
         "Technical Communication",
         "Microprocessor & Interfaces",
         "Database Management System",
@@ -53,7 +40,7 @@ export const SubjectName =
  },
 {
     "Semester" : "V",
-    "Branch" : "Computer Science" , 
+    "Branch" : "Computer Science Engineering" , 
     "Subjects" : [
         "Information Theory & Coding",
         "Compiler Design",
@@ -67,7 +54,7 @@ export const SubjectName =
 },
 {
     "Semester" : "VI",
-    "Branch" : "Computer Science" , 
+    "Branch" : "Computer Science Engineering" , 
     "Subjects" :[
         "Digital Image Processing",
         "Machine Learning",
@@ -82,7 +69,7 @@ export const SubjectName =
 },
 {
     "Semester" : "VII",
-    "Branch" : "Computer Science" , 
+    "Branch" : "Computer Science Engineering" , 
     "Subjects" :[
        "Internet of Things",
        "Cyber Security Lab"
@@ -90,14 +77,14 @@ export const SubjectName =
 },
 {
     "Semester" : "VIII",
-    "Branch" : "Computer Science" , 
+    "Branch" : "Computer Science Engineering" , 
     "Subjects" : [
         "Big Data Analytics"
     ]
 },
 { 
     "Semester" : "I",
-    "Branch" : "Electrical" ,
+    "Branch" : "Electrical Engineering" ,
     "Subjects" :["Engineering mathematics -I",
      "Engineering",
      "Mathematics-II",
@@ -110,7 +97,7 @@ export const SubjectName =
   },
   {
      "Semester" : "II",
-     "Branch" : "Electrical" ,
+     "Branch" : "Electrical Engineering" ,
      "Subjects" :["Engineering mathematics -I",
          "Engineering",
          "Mathematics-II",
@@ -123,7 +110,7 @@ export const SubjectName =
   },
   { 
     "Semester" : "I",
-    "Branch" : "Electronics and Communication" ,
+    "Branch" : "Electronics and Communication Engineering" ,
     "Subjects" :["Engineering mathematics -I",
      "Engineering",
      "Mathematics-II",
@@ -136,7 +123,7 @@ export const SubjectName =
   },
   {
      "Semester" : "II",
-     "Branch" : "Electronics and Communication" ,
+     "Branch" : "Electronics and Communication Engineering" ,
      "Subjects" :["Engineering mathematics -I",
          "Engineering",
          "Mathematics-II",
@@ -149,7 +136,7 @@ export const SubjectName =
   },
   {
     "Semester" : "III",
-    "Branch" : "Electronics and Communication" ,
+    "Branch" : "Electronics and Communication Engineering" ,
     "Subjects" :[
         "Advanced Engineering Mathematics",
         "Digital System Design",
@@ -160,7 +147,7 @@ export const SubjectName =
   },
   {
     "Semester" : "IV",
-    "Branch" : "Electronics and Communication" ,
+    "Branch" : "Electronics and Communication Engineering" ,
     "Subjects" : [
         "Advance Engineering Mathematics-II",
         "Analog Circuits",
@@ -171,7 +158,7 @@ export const SubjectName =
   },
   {
     "Semester" : "V",
-    "Branch" : "Electronics and Communication" ,
+    "Branch" : "Electronics and Communication Engineering" ,
     "Subjects" :[
         "Computer Architecture ",
         "Electromagnetics Waves",
@@ -186,7 +173,7 @@ export const SubjectName =
   },
   { 
     "Semester" : "I",
-    "Branch" : "Civil" ,
+    "Branch" : "Civil Engineering" ,
     "Subjects" :["Engineering mathematics -I",
      "Engineering",
      "Mathematics-II",
@@ -199,7 +186,7 @@ export const SubjectName =
   },
   {
      "Semester" : "II",
-     "Branch" : "Civil" ,
+     "Branch" : "Civil Engineering" ,
      "Subjects" :["Engineering mathematics -I",
          "Engineering",
          "Mathematics-II",

@@ -17,7 +17,7 @@ export default function Navbar(){
   <div className="navbar-area blurred-box">
     <div className="container">
       <nav className="site-navbar">
-        <a href="#home" className="site-logo"><img src={logo}></img></a>
+        <a href="/" className="site-logo"><img src={logo}></img></a>
        
            {!isAuth()?
            <ul className="navbar-1">

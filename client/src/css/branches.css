@@ -14,21 +14,6 @@
   text-transform: uppercase;
   font-size: 4rem;
 }
-@media (max-width: 1024px) {
-    body {
-      background-image: linear-gradient(
-        to bottom,
-        #13131a 0%,
-        #1c1c2f 50%,
-        #eeeeee 50%,
-        #cfcfcf 100%
-      );
-    }
-    .container {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
-    }
-  }
   
   .overlay {
     color: #fff;
