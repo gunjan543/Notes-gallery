@@ -12,29 +12,29 @@ export default function Navbar(){
     history.push('/');
   }
     return(<>
-  <header className="header-area">
-  
-  <div className="navbar-area blurred-box">
-    <div className="container">
-      <nav className="site-navbar">
-        <a href="/" className="site-logo"><img src={logo}></img></a>
-       
-           {!isAuth()?
-           <ul className="navbar-1">
-            <li><a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a></li>
-          <li><a href="/login" className="upload hvr-bounce-to-top">Login</a></li>
-          </ul>
-          :
-          <ul className="navbar-2">
-          <li><a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a></li>
-          <li><a href="/" className="upload hvr-bounce-to-top" onClick={signout}>Logout</a></li>
-          <li><a href="/profile" className="upload hvr-bounce-to-top">Profile</a></li>
-          </ul>  
-           }
-      </nav>
+    <div class="nav">
+  <input type="checkbox" id="nav-check"/>
+  <div class="nav-header">
+    <div class="nav-title">
+    <a href="/" className="site-logo"><img src={logo}></img></a>
     </div>
   </div>
-</header>
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+  
+  <div class="nav-links">
+  
+    <a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a>
+    <a href="/" className="upload hvr-bounce-to-top" onClick={signout}>Logout</a>
+    <a href="/profile" className="upload hvr-bounce-to-top">Profile</a>
+  </div>
+</div>
+
 </>
     )
 }

@@ -2,7 +2,7 @@
 
 .blackboard {
     position: relative;
-    width: 640px;
+    max-width: 640px;
     margin: 7% auto;
     border: tan solid 12px;
     border-top: #bda27e solid 12px;
@@ -52,7 +52,7 @@
 .shade input,
 .shade textarea {
     vertical-align: middle;
-    width: 85%;
+    width: 100%;
     padding-left: 10px;
     background: none;
     border: none;
@@ -72,7 +72,7 @@
 
 .shade input[type="submit"] {
     margin-top: 2rem;
-    margin-left: 4rem;
+ 
     cursor: pointer;
     color: rgba(238, 238, 238, 0.7);
     line-height: 1em;
@@ -90,11 +90,11 @@
     text-shadow: none;
 }
 
-::selection {
+/* ::selection {
     background: rgba(238, 238, 238, 0.4);
     color: rgba(238, 238, 238, 0.3);
     text-shadow: none;
-}
+} */
 
 .subjects{
     font-size: 1.5rem;
@@ -180,4 +180,20 @@
 
  .shade input[type=file] {
     display: inline;
+}
+
+@media screen and (max-width:800px) {
+    .blackboard{
+        margin: 7%;
+    }
+    .shade select{
+        width:19rem;
+    }    
+}
+
+@media screen and (max-width:455px) {
+    .select{
+       margin-left: 25px!important;
+    }
+    
 }

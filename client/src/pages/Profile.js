@@ -36,8 +36,8 @@ export default function Profile(){
         <Navbar></Navbar>
         <section className="profile-table">
             <h1>Hello, <span style={{textTransform:"capitalize"}}>{name}</span></h1>
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+            
+                <table>
                 <thead>
                     <tr>
                     <th>Subject Name</th>
@@ -47,15 +47,11 @@ export default function Profile(){
                     <th>Preview</th>
                     <th>Delete</th>
                     </tr>
-                </thead>
-                </table>
-            </div>
-            <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                </thead>  
                 <tbody>
                     {notes.map((note)=>{
                         return(
-                            <tr>
+                    <tr>
                     <td>{note.subject}</td>
                     <td>{note.type}</td>
                     <td>{note.unit}</td>
@@ -70,7 +66,7 @@ export default function Profile(){
                     })}
                 </tbody>
                 </table>
-            </div>
+          
         </section>
        
         </>

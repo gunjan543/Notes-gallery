@@ -126,15 +126,21 @@
 }
 
 @media screen and (max-width:1400px) {
+
+  .landing{
+    background-color: #ebebe7;
+    width: 99.2vw;
+  }
   .left-landing{
     display: none;
   }
   .right-landing{
-    width: 100vw;
+    width: 99vw;
     margin-right: 0;
     float: none;
     text-align: center;
     padding: 0rem 25%;
+
   }
   .right-landing p{
     text-align: center;
