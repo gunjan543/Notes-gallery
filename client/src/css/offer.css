@@ -1,0 +1,32 @@
+
+
+.offer h3{
+ text-align: center;
+ text-transform: uppercase;
+ color: #181D27;
+ font-weight: 900;
+ font-size: 3rem;
+ margin: 3rem;
+}
+
+.offer-img img{ 
+ width: 28rem;
+ height: 23rem;
+
+}
+
+.offer-img p{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.offer{
+    overflow:hidden ;
+    margin:5rem 0;
+}
+
+.offer .row{
+    overflow: hidden;
+    text-align: center;
+}

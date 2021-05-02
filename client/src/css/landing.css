@@ -1,0 +1,152 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.landing-img{
+  height: 60vh;
+  width: 60vh;
+  margin-left: 10rem;
+  margin-top:7rem;
+  margin-bottom: 8rem;
+}
+
+.landing-page{
+    background-color: #ebebe7;
+    width: 99.2vw;
+    height: 100vh
+}
+
+.left-landing{
+  float:left;
+  background-color: #ebebe7;
+  height: 70vh;
+}
+
+.right-landing{
+  float: right;
+  background-color: #ebebe7;
+  margin-top: 20rem;
+  width: 43rem;
+  margin-right: 24rem;
+}
+
+.right-landing h3
+{
+  font-size: 4rem;
+  text-transform: uppercase;
+  padding-bottom: 2rem;
+  color: #181D27;
+  font-weight: 600;
+}
+
+.right-landing p{
+  font-size:2rem ;
+  opacity: 0.7;
+  text-align: justify;
+}
+
+.college-notes{
+  color: #aa3134;
+}
+
+.footer{
+  background-color: #cedf6d;
+  text-align: center;
+  padding: 3rem;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.button-7 {
+  display: inline-flex;
+  height: 40px;
+  width: 150px;
+  border: 2px solid #181D27;
+  margin: 40px 20px 20px 0px;
+  color: #181D27;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.button-7 a {
+  color: #181D27;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+}
+
+#button-7 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-7 a {
+  position: relative;
+  left: 0;
+  transition: all .35s ease-Out;
+}
+
+#dub-arrow {
+  width: 100%;
+  height: 100%;
+  background: #BFC0C0;
+  left: -200px;
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .35s ease-Out;
+  bottom: 0;
+}
+
+#button-7 img {
+  width: 20px;
+  height: auto;
+}
+
+#button-7:hover #dub-arrow {
+  left: 0;
+}
+
+#button-7:hover a {
+  left: 150px;
+}
+
+@media screen and (max-width:1400px) {
+
+  .landing{
+    background-color: #ebebe7;
+    width: 99.2vw;
+  }
+  .left-landing{
+    display: none;
+  }
+  .right-landing{
+    width: 99vw;
+    margin-right: 0;
+    float: none;
+    text-align: center;
+    padding: 0rem 25%;
+
+  }
+  .right-landing p{
+    text-align: center;
+  }
+  
+}
+/* #89a439
+#cedf6d
+#aa3134 */
