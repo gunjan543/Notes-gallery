@@ -32,7 +32,7 @@ const Activate = ({ match, history }) => {
     e.preventDefault();
 
     axios
-      .post(`http://localhost:5000/api/activation`, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/activation`, {
         token
       })
       .then(res => {

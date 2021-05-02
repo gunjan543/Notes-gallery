@@ -18,7 +18,7 @@ const Forget = ({history}) => {
         if (email) {
           setFormData({ ...formData });
           axios
-            .put(`http://localhost:5000/api/forgotpassword`, {
+            .put(`${process.env.REACT_APP_BACKEND_URL}/api/forgotpassword`, {
               email
             })
 
