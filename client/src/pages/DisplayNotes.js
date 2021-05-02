@@ -17,7 +17,7 @@ export default class DisplayNotes extends Component{
     componentDidMount=()=>{
         subjectName= localStorage.getItem('subjectName');
         type = localStorage.getItem('type');
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/getNotes`, {subjectName,type})
+        axios.post(`/api/getNotes`, {subjectName,type})
         .then(response=>{
             console.log(response);
           this.setState({documents:response.data.documents})  
@@ -43,7 +43,7 @@ export default class DisplayNotes extends Component{
                     <h2>{file.other} {file.year}</h2>
                     <p>By - {file.name} ({file.role})</p>
                     <p>
-                        <a href={'${process.env.REACT_APP_BACKEND_URL}/api/file/'+file.filename} >View Notes</a>
+                        <a href={'/api/file/'+file.filename} >View Notes</a>
                     </p>
                 </div>
                 )

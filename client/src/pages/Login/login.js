@@ -25,7 +25,7 @@ const Login = ({history}) => {
         if (email && password1) {
           setFormData({ ...formData, textChange: 'Submitting' });
           axios
-            .post(`${process.env.REACT_APP_BACKEND_URL}/api/login`, {
+            .post(`/api/login`, {
               email,
               password: password1
             })

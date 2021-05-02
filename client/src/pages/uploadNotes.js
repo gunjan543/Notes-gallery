@@ -76,7 +76,7 @@ export default class UploadNotes extends Component {
 		formData.append('unit', this.state.unit);
 		formData.append('other', this.state.other);
 		console.log(formData);
-		Axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/uploadNotes`, formData)
+		Axios.post(`/api/uploadNotes`, formData)
 		.then((response) => {
 			this.props.history.push('/profile');
 		})
