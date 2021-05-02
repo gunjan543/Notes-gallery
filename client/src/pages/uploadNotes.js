@@ -82,7 +82,7 @@ export default class UploadNotes extends Component {
 		})
 		.catch(err => console.log(err));
 	}
-	
+	 
 	handleSubmit = e => {
         e.preventDefault();
 
@@ -95,11 +95,11 @@ export default class UploadNotes extends Component {
 
 <div class="shade">
 	<Navbar></Navbar>
-		<div class="blackboard">
-				<form class="upload-form" autocomplete="new-password" onSubmit={this.handleSubmit}>
+		<div className="blackboard">
+				<form className="upload-form" autocomplete="new-password" onSubmit={this.handleSubmit}>
 						<p>
 							<label>Role:</label>
-					<span class="select" style={{marginLeft:"73px"}} onChange={this.handleChange('role')}>
+					<span className="select" style={{marginLeft:"73px"}} onChange={this.handleChange('role')}>
 							<select name="role" id="slct" >
 								<option selected disabled>Choose an option</option>
 								<option value="Teacher" >Teacher</option>
@@ -111,7 +111,7 @@ export default class UploadNotes extends Component {
 				
 						<p>
 							<label>Year:</label>
-							<span class="select" style={{marginLeft:"77px"}} onChange={this.handleChange('year')}>
+							<span className="select" style={{marginLeft:"77px"}} onChange={this.handleChange('year')}>
 							<select name="year" id="slct">
 								<option selected disabled>Choose an option</option>
 								<option value="2021" > 2021 </option>
@@ -133,7 +133,7 @@ export default class UploadNotes extends Component {
 						  <p>
 								<label>Subject:</label>
 
-                                <span class="select" style={{marginLeft:"41px"}} onChange={this.handleChange('subject')}>
+                                <span className="select" style={{marginLeft:"41px"}} onChange={this.handleChange('subject')}>
 								<select name="slct" id="slct">
 							    <option selected disabled>Choose an option</option>		
 								{
@@ -153,7 +153,7 @@ export default class UploadNotes extends Component {
   			            </p>
 						  <p>
 								<label>Type:</label>
-                                <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('type')}>
+                                <span className="select" style={{marginLeft:"79px"}} onChange={this.handleChange('type')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="Notes"> Notes </option>
@@ -165,7 +165,7 @@ export default class UploadNotes extends Component {
   			            </p>  
 						<p>
 								<label>Unit:</label>
-                                <span class="select" style={{marginLeft:"79px"}} onChange={this.handleChange('unit')}>
+                                <span className="select" style={{marginLeft:"79px"}} onChange={this.handleChange('unit')}>
 								<select name="slct" id="slct">
 									<option selected disabled>Choose an option</option>
 									<option value="All"> All </option>
@@ -195,7 +195,7 @@ export default class UploadNotes extends Component {
 								</span>
 						</p>
 
-						<p class="wipeout">
+						<p className="wipeout">
 								<input type="submit" value="Submit" />
 						</p>
 				</form>

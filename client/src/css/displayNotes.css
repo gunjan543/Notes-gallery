@@ -46,6 +46,19 @@
     transition: background-color  0.2s ease-in;
 }
 
+.not-found h1{
+    margin-top:5%;
+    text-align: center;
+}
+
+.not-found img{
+    height:35%;
+    width:35%;
+    margin:3rem auto;
+    border-radius: 50%;
+   
+}
+
 @media screen and (max-width:550px) {
     .display-notes h3, .display-notes h2,.display-notes p{
         font-size: large;

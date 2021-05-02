@@ -135,6 +135,7 @@
     display: none;
   }
   .right-landing{
+    margin-top: 5rem;
     width: 99vw;
     margin-right: 0;
     float: none;

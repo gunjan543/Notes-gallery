@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import Logo from '../Logo/logo';
 import {ToastContainer, toast} from 'react-toastify';
-
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,14 +11,14 @@ const Forget = ({history}) => {
       });
       const { email } = formData;
       const handleChange = text => e => {
-        setFormData({ ...formData});
+        setFormData({...formData,email:e.target.value});
       };
       const handleSubmit = e => {
         e.preventDefault();
         if (email) {
           setFormData({ ...formData });
           axios
-            .put(`/api/forgotpassword`, {
+            .put(`http://localhost:5000/api/forgotpassword`, {
               email
             })
 
@@ -47,7 +45,6 @@ const Forget = ({history}) => {
     return ( 
 
         <div className="Signup">
-            <Logo />
             <ToastContainer/>
             <h1>Forgot Password?</h1>
             <p>Don't have an account? <a href="/register">Sign Up</a></p>
@@ -58,7 +55,7 @@ const Forget = ({history}) => {
                 <div>
                     <input type="email" 
                     onChange = {handleChange('email')} 
-                    value={email} 
+                
                     required/>
                     <label>Email</label>
                 </div>
@@ -69,7 +66,6 @@ const Forget = ({history}) => {
            
             </div>
 
-            <div className="vertical-row"></div>
 
             
      

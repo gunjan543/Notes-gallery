@@ -52,9 +52,9 @@ cards.forEach((card) => {
 });
  
     return(<>
-    <div class="overlay">
-    <div class="card ">
-    <div class="card__title" onClick={()=>{localStorage.setItem('branchname',props.name); history.push('/subjects')}}>{props.name}</div>
+    <div className="overlay">
+    <div className="card ">
+    <div className="card__title" onClick={()=>{localStorage.setItem('branchname',props.name); history.push('/subjects')}}>{props.name}</div>
     </div>
   </div>
     </>

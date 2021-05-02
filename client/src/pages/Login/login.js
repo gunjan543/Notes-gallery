@@ -65,7 +65,7 @@ const Login = ({history}) => {
           toast.error('Please fill all fields');
         }
       };
-
+  
 
     return ( 
      
@@ -94,7 +94,7 @@ const Login = ({history}) => {
                 <input type="checkbox" id="Remember me" name="Remember me" value="Remember me" />
                 <label for="Remember me"> Remember me</label>
                 <br></br>
-                <a href="/users/password/forget">Forgot Password ?</a>
+                <a href="/forgotPassword">Forgot Password ?</a>
                 <br></br>
                 <input type="submit" className="loginSubmit" value="Login"/>     
             </form>

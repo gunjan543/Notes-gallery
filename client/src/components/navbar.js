@@ -12,6 +12,7 @@ export default function Navbar(){
     history.push('/');
   }
     return(<>
+
     <div class="nav">
   <input type="checkbox" id="nav-check"/>
   <div class="nav-header">
@@ -26,13 +27,21 @@ export default function Navbar(){
       <span></span>
     </label>
   </div>
-  
+  {isAuth()?
   <div class="nav-links">
   
     <a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a>
     <a href="/" className="upload hvr-bounce-to-top" onClick={signout}>Logout</a>
     <a href="/profile" className="upload hvr-bounce-to-top">Profile</a>
   </div>
+  :
+  <div class="nav-links">
+  
+    <a href="/filter" className="upload hvr-bounce-to-top">Upload Notes</a>
+    <a href="/login" className="upload hvr-bounce-to-top">Login</a>
+  </div>
+  
+  }
 </div>
 
 </>

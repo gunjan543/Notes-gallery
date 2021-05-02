@@ -50,16 +50,16 @@ const Activate = ({ match, history }) => {
   };
   return ( 
     <div>
-    {isAuth() ? <Redirect to='/' /> : null}
+   
 
         <ToastContainer/>
-        <div id="wrapper">
-        <div className="lt">
+        <div className="Signup box">
+        <div className="activate">
         <form onSubmit={handleSubmit}>
              <h2>Welcome {name}</h2>
-             <input type="submit" name="Activate your Account" value="Activate your Account" />
+             <input type="submit" className="loginSubmit" name="Activate your Account" value="Activate your Account" />
              <p>Or sign up again</p>
-             <input type="submit" name="Sign Up" value="Sign Up" />
+             <input type="submit" className="loginSubmit" name="Sign Up" value="Sign Up" />
         </form>
         </div>
         </div>

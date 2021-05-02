@@ -17,6 +17,11 @@ body{
       place-content: center;
 
   }
+
+  .activate form{
+    margin-top: 25rem;
+    text-align: center;
+  }
   /*Form*/
   
   .box{
@@ -113,6 +118,7 @@ body{
   #dropdown{
     min-width:25rem ;
   }
+
 
   @media(max-width:590px){
     .wrap{

@@ -21,7 +21,7 @@ export default function Subjects(){
         <>
         <Navbar></Navbar>
         <h1 className="subject-heading">Select Subject</h1>
-        <div class="row subject-row ">
+        <div className="row subject-row ">
             {
                 result.map((subject) => {
                     { 

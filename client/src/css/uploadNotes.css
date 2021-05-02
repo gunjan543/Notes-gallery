@@ -80,7 +80,7 @@
 }
 
 .shade input[type="submit"]:focus {
-    background: rgba(238, 238, 238, 0.2);
+   
     color: rgba(238, 238, 238, 0.2);
 }
 

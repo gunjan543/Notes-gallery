@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import Logo from '../Logo/logo';
+import {useHistory} from 'react-router-dom';
 import {ToastContainer, toast} from 'react-toastify';
 
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ResetPassword = ({match}) => {
-
+  const history = useHistory();
     const [formData, setFormData] = useState({
         password1: '',
         password2: '',
@@ -23,26 +23,25 @@ const ResetPassword = ({match}) => {
           
       }, [])
     const handleChange = text => e => {
-      setFormData({ ...formData});
+      setFormData({ ...formData, [text]:e.target.value});
     };
       const handleSubmit = e => {
-        console.log(password1, password2)
       e.preventDefault();
       if ((password1 === password2) && password1 && password2) {
         setFormData({ ...formData });
         axios
-          .put(`/api/resetpassword`, {
+          .put(`http://localhost:5000/api/resetpassword`, {
               newPassword: password1,
               resetPasswordLink: token
           })
           .then(res => {
-            console.log(res.data.message)
               setFormData({
                 ...formData,
                  password1: '',
                 password2: ''
               });
               toast.success(res.data.message);
+              history.push('/login')
             
           })
           .catch(err => {
@@ -56,7 +55,6 @@ const ResetPassword = ({match}) => {
     return ( 
 
         <div className="Signup">
-            <Logo />
             <ToastContainer/>
             <h1>Forgot Password?</h1>
             <p>Don't have an account? <a href="/register">Sign Up</a></p>
@@ -85,11 +83,6 @@ const ResetPassword = ({match}) => {
             </form>
            
             </div>
-
-            <div className="vertical-row"></div>
-
-            
-     
         </div>
         </div>
      );
