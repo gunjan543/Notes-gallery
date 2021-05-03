@@ -5,7 +5,7 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../css/login.css'
-
+import Navbar from '../../components/navbar'
 const Login = ({history}) => {
 
     const [formData, setFormData] = useState({
@@ -71,6 +71,7 @@ const Login = ({history}) => {
      
         <div className="Signup">
          {!isAuth()?null: <Redirect to = "/profile" />}
+            <Navbar></Navbar>
             <ToastContainer/>
             <h1>Log In to Notes Gallery</h1>
             <p>Don't have an account? <a href="/register">Sign Up</a></p>

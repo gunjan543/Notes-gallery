@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
-
+import Navbar from '../../components/navbar'
 
 const Register = (history) => {
 
@@ -71,9 +71,10 @@ const Register = (history) => {
       };
 
     return ( 
+     
         <div className="Signup">
         { isAuth()?<Redirect to = '/profile' />:null }
-        
+        <Navbar></Navbar>
         <ToastContainer/>
             
             <h1>Sign Up to Notes Gallery</h1>
